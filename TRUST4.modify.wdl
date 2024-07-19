@@ -75,6 +75,7 @@ task TRUST4_TASK {
     gzip ${sample_id}_annot.fa
     gzip ${sample_id}_cdr3.out
     gzip ${sample_id}_report.tsv
+    gzip ${sample_id}_airr.tsv
 
     if [[ ! -z "${barcode_10x}" ]]; then
         gzip ${sample_id}_barcode_report.tsv
@@ -86,6 +87,7 @@ task TRUST4_TASK {
       File annot="${sample_id}_annot.fa.gz"
       File report="${sample_id}_cdr3.out.gz"
       File simpleReport="${sample_id}_report.tsv.gz"
+      File airrReport="${sample_id}_airr.tsv.gz"
       File? barcodeReport="${sample_id}_barcode_report.tsv.gz"
    }
    
@@ -158,12 +160,14 @@ task TRUST4_SMART_TASK {
 
     gzip ${sample_id}_annot.fa
     gzip ${sample_id}_report.tsv
+    gzip ${sample_id}_airr.tsv
 
    >>>
     
     output {
       File annot="${sample_id}_annot.fa.gz"
       File simpleReport="${sample_id}_report.tsv.gz"
+      File airrReprot="${sample_id}_airr.tsv.gz"
    }
    
     runtime {
