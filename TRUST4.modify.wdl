@@ -71,17 +71,10 @@ task TRUST4_TASK {
             -o ${sample_id}
 
     fi
-    gzip ${sample_id}_airr_align.tsv
-    gzip ${sample_id}_airr.tsv
-    gzip ${sample_id}_annot.fa
-    gzip ${sample_id}__assembled_reads.fa
-    gzip ${sample_id}_cdr3.out
-    gzip ${sample_id}_final.out
-    gzip ${sample_id}_raw.out
-    gzip ${sample_id}_report.tsv
-    gzip ${sample_id}_toassemble_1.fq
-    gzip ${sample_id}_toassemble_2.fq
 
+    gzip ${sample_id}_annot.fa
+    gzip ${sample_id}_cdr3.out
+    gzip ${sample_id}_report.tsv
 
     if [[ ! -z "${barcode_10x}" ]]; then
         gzip ${sample_id}_barcode_report.tsv
@@ -93,13 +86,6 @@ task TRUST4_TASK {
       File annot="${sample_id}_annot.fa.gz"
       File report="${sample_id}_cdr3.out.gz"
       File simpleReport="${sample_id}_report.tsv.gz"
-      File airr_align="${sample_id}_airr_align.tsv.gz"
-      File airr="${sample_id}_airr.tsv.gz"
-      File assembled_reads="${sample_id}__assembled_reads.fa.gz"
-      File finalout ="${sample_id}_final.out.gz" 
-      File raw="${sample_id}_raw.out.gz"
-      File assemble_1="${sample_id}_toassemble_1.fq.gz"
-      File assemble_2="${sample_id}_toassemble_2.fq.gz"
       File? barcodeReport="${sample_id}_barcode_report.tsv.gz"
    }
    
